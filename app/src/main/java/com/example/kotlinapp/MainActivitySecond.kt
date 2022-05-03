@@ -3,30 +3,28 @@ package com.example.kotlinapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.kotlinapp.databinding.ActivityMainSecondBinding
 
 class MainActivitySecond : AppCompatActivity() {
-		private lateinit var binding: ActivityMainSecondBinding
+	private lateinit var binding: ActivityMainSecondBinding
 
-
-	override fun onCreate(savedInstanceState: Bundle?) {
+	override fun onCreate(s: Bundle?) {
 		binding = ActivityMainSecondBinding.inflate(layoutInflater)
-		super.onCreate(savedInstanceState)
+		super.onCreate(s)
 		setContentView(binding.root)
 
-		binding.button.setOnClickListener {
-			// создаем intent
-			val i = Intent()
-			// помещяем информацию (ключ, значение)
-			i.putExtra(" key", "done")
-			// отправляем intent (RESULT_OK, intent)
-			setResult(RESULT_OK, i)
-			// что бы закончить и вернуться в активити которое вызывало
-			finish()
-		}
+binding.button2.setOnClickListener{
+		val i = Intent()
+		i.putExtra("key", "Successful")
+		setResult(RESULT_OK, i)
+		finish()
 	}
 
-
+	}
 
 
 }
