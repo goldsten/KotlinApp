@@ -13,15 +13,6 @@ class MainActivitySecond : AppCompatActivity() {
 		super.onCreate(s)
 		setContentView(binding.root)
 
-binding.button2.setOnClickListener{
-		val i = Intent()
-		i.putExtra("key", "Successful")
-		setResult(RESULT_OK, i)
-	// закрываем активити
-		finish()
-	}
 
 	}
-
-
 }
