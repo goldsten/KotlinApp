@@ -3,10 +3,6 @@ package com.example.kotlinapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import com.example.kotlinapp.databinding.ActivityMainSecondBinding
 
 class MainActivitySecond : AppCompatActivity() {
@@ -21,6 +17,7 @@ binding.button2.setOnClickListener{
 		val i = Intent()
 		i.putExtra("key", "Successful")
 		setResult(RESULT_OK, i)
+	// закрываем активити
 		finish()
 	}
 
