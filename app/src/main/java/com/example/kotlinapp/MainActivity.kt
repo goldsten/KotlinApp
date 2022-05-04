@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 			if (result.resultCode == RESULT_OK){
 				// создаем intent, получаем результат
 				val txt = result.data?.getStringExtra("key")
+				binding.tvResult.visibility = View.VISIBLE
 				binding.tvResult.text = txt
 				Log.d("MyLog", "Result $txt")
 			}

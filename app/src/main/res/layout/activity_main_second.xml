@@ -7,15 +7,39 @@
     tools:context=".MainActivitySecond"
     android:id="@+id/linearLayout">
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/erView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_error"
+        app:layout_constraintBottom_toTopOf="@+id/edView"
+        app:layout_constraintEnd_toEndOf="@+id/edView"
+        app:layout_constraintStart_toStartOf="@+id/edView" />
+
+    <EditText
+        android:id="@+id/edView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:hint="Value"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="send"
+        app:layout_constraintEnd_toEndOf="@+id/edView"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/edView"
+        app:layout_constraintTop_toBottomOf="@+id/edView"
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="411dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

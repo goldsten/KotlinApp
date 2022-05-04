@@ -14,11 +14,16 @@ class MainActivitySecond : AppCompatActivity() {
 		setContentView(binding.root)
 
 		binding.button2.setOnClickListener{
-			val i = Intent()
-			i.putExtra("key", "Successful")
-			setResult(RESULT_OK, i)
-			// закрываем активити
-			finish()
+			val edView = binding.edView.text.toString()
+			//
+			if (edView != ""){
+				val i = Intent()
+				i.putExtra("key", "ActivitySecond: $edView")
+				setResult(RESULT_OK, i)
+				// закрываем активити
+				finish()
+			}else	binding.erView.text = "Empty field"
+
 		}
 	}
 }
