@@ -1,5 +1,6 @@
 package com.example.kotlinapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,6 @@ import com.example.kotlinapp.databinding.SightItemBinding
 class AdapterRecyclerView: RecyclerView.Adapter<AdapterRecyclerView.HolderRecyclerView>() {
 	// добавляем массив элементов
 	val sights_list = ArrayList<SightsActivity>()
-
-
 
 	// наследуем class от RecyclerView.ViewHolder
 	// HolderRecyclerView(view отдельный шаблон, который заполняет RecyclerView )
@@ -26,8 +25,8 @@ class AdapterRecyclerView: RecyclerView.Adapter<AdapterRecyclerView.HolderRecycl
 		fun bind(sights:SightsActivity) = with(binding){
 			//получаем view
 			imgView.setImageResource(sights.imgId)
-			titleView.text = sights.title
-
+			// setText() - записываем в поле значение string
+			titleView.setText(sights.title)
 		}
 	}
 	// СОЗДАЕТСЯ и хранится разметка
@@ -44,11 +43,11 @@ class AdapterRecyclerView: RecyclerView.Adapter<AdapterRecyclerView.HolderRecycl
 		// берем holder и вызываем bind(передаем sight_list[поизиция])
 		holder.bind(sights_list[position])
 	}
-	//передаем размер массива
+	//ПЕРЕДАЕМ РАЗМЕР МАССИВА
 	override fun getItemCount(): Int {
 		return sights_list.size
 	}
-	//что бы добавлять новый элемент
+	//ЧТО БЫ ДОБАВЛЯТЬ НОВЫЙ ЭЛЕМЕНТ
 	fun addSight(sights: SightsActivity){
 		sights_list.add(sights)
 		// следит за новыми элементами и обновляет список

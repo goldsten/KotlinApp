@@ -2,6 +2,7 @@ package com.example.kotlinapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kotlinapp.databinding.ActivityMainBinding
 
@@ -9,8 +10,6 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
 	// создаем экземпляр класса адаптера
 	private val adapter = AdapterRecyclerView()
-
-
 	private var index = 0
 
 	override fun onCreate(s: Bundle?) {
@@ -30,13 +29,16 @@ class MainActivity : AppCompatActivity() {
 				//выбираем как ориентацию
 				// rcView.layoutManager = LinearLayoutManager(this@MainActivity) - выведет ГОРИЗОНТАЛЬНО
 				// (выбираем context, пишем количество столбцов)
-				rcView.layoutManager = GridLayoutManager(this@MainActivity, 3)
+				rcView.layoutManager = GridLayoutManager(this@MainActivity, 2)
 				// выбираем адаптер
 				rcView.adapter = adapter
+				val image = DataSights.imageIdList[index]
+				val title = DataSights.titleList[index]
+				val descr = DataSights.descriptionList[index]
 				val sight = SightsActivity(
-					DataSights.imageIdList[index],
-					DataSights.titleList[index].toString(),
-					DataSights.descriptionList[index].toString()
+					image,
+					title,
+					descr
 				)
 				adapter.addSight(sight)
 				index++
