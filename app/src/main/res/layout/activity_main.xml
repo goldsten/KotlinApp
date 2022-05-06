@@ -4,4 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
+<!--
+    После новой версии Android Studio BumbleBee многие об этом пишут, но на эмуляторе все работает, новая версия пришла со многими багами в редакторе, на устройствах все работает.
+-->
+	<TextView
+		 android:id="@+id/txtView"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:text="TextView"
+		 app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
+		 app:layout_constraintEnd_toEndOf="parent"
+		 app:layout_constraintStart_toStartOf="parent"
+		 app:layout_constraintTop_toTopOf="parent" />
+
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		 android:id="@+id/bottomNavBar"
+		 android:layout_width="match_parent"
+		 android:layout_height="wrap_content"
+		 android:background="#FFFFFF"
+		 app:itemIconTint="@drawable/nav_bar_selector_color"
+		 app:itemTextColor="@color/dark_cyan"
+		 app:layout_constraintBottom_toBottomOf="parent"
+		 app:layout_constraintEnd_toEndOf="parent"
+		 app:layout_constraintStart_toStartOf="parent"
+		 app:menu="@menu/menu_nav_bar" />
+<!--
+    убирает подпись к иконкам
+    app:labelVisibilityMode="unlabeled"
+-->
+<!--
+что бы выбрать цвет текст под item
+можно выбрать цвет в атрибутах itemTextColor
+-->
+</androidx.constraintlayout.widget.ConstraintLayout>
