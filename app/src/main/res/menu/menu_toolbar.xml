@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	 xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item
+		 android:title="Menu"
+		 android:id="@+id/newTitle"
+		 android:icon="@drawable/ic_baseline"
+		 app:showAsAction="ifRoom"
+		 />
+
+<!--	как показывать список меню
+app:showAsAction=""
+always - всегда иконки если иконок 5 а размер экрана стал меньше, будет плохо
+ifRoom - показывает по размеру тулбара, если будут не вмещатся, покажется выпадающий список меню
+never - никогда не будет показывать картинки\иконки
+
+android:orderInCategory="number"
+number - указывается порядок очереди (слева на право)
+-->
+</menu>
