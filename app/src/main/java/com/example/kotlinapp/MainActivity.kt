@@ -12,6 +12,29 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(s)
 		setContentView(binding.root)
 
-	}
+		//слушатель
+		binding.button.setOnClickListener {
+			supportFragmentManager
+				//запускаем фрагмент
+				.beginTransaction()
+				//заменяем один фрагмент на другой
+				//разметка, запуск
+				//BlankFragment. newInstance() - проверит запущено ли и если нет то запустит или перезапустит фрагмент
+				//.commit()
+				.replace(R.id.place_holder, BlankFragment2.newInstance())
+				.commit()
+		}
 
+		//показываем фрагмент
+		supportFragmentManager
+			//запускаем фрагмент
+			.beginTransaction()
+			//заменяем один фрагмент на другой
+			//разметка, запуск
+			//BlankFragment. newInstance() - проверит запущено ли и если нет то запустит или перезапустит фрагмент
+			//.commit()
+			.replace(R.id.place_holder, BlankFragment.newInstance())
+			.commit()
+
+	}
 }
