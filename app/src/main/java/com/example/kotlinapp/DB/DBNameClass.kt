@@ -9,6 +9,7 @@ object DBNameClass : BaseColumns {
 	// содержание таблицы
 	const val TABLE_TITLE ="title"
 	const val TABLE_DESCRIPTION ="description"
+	const val TABLE_URI_IMAGE ="uri"
 
 	// версия
 	const val DATABASE_VERSION = 1
@@ -19,8 +20,7 @@ object DBNameClass : BaseColumns {
 			  //id элемента
 			  //text тип данных
 			  "${BaseColumns._ID} INTEGER PRIMARY KEY," +
-			  "$TABLE_TITLE TEXT," +
-			  "$TABLE_DESCRIPTION TEXT)"
+			  "$TABLE_TITLE TEXT, $TABLE_DESCRIPTION TEXT, $TABLE_URI_IMAGE TEXT)"
 
 	// удаление таблицы
 	const val DELETE_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"

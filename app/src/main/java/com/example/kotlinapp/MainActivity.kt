@@ -10,7 +10,7 @@ import com.example.kotlinapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
-	// создаем менеджер (context)
+	// создаем менеджер БД (context)
 	val managerDB = DBManager(this)
 
 	override fun onCreate(s: Bundle?) {
@@ -27,11 +27,7 @@ class MainActivity : AppCompatActivity() {
 
 	override fun onResume() {
 		super.onResume()
-		binding.apply {
-			managerDB.openDB()
-
-
-		}
+		managerDB.openDB()
 	}
 
 	override fun onDestroy() {

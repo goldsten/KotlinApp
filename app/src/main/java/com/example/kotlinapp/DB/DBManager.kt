@@ -18,12 +18,13 @@ class DBManager(context: Context) {
 		db = dbHelper.writableDatabase
 	}
 	//ЗАПИСЬ в БД
-	fun isertToDB(title: String, description:String){
+	fun isertToDB(title: String, description:String, uri: String){
 		//значения которые передаются в БД
 		val values = ContentValues().apply {
 			// put(key: Type, velues: Type)
 			put(DBNameClass.TABLE_TITLE, title)
 			put(DBNameClass.TABLE_DESCRIPTION, description)
+			put(DBNameClass.TABLE_URI_IMAGE, uri)
 		}
 		// указываем в какую БД запись
 		db?.insert(DBNameClass.TABLE_NAME, null, values)
@@ -42,6 +43,10 @@ class DBManager(context: Context) {
 			val dataTextDesc = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_DESCRIPTION))
 			//помещяем в
 			dataList.add(dataTextDesc.toString())
+
+			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
+			//помещяем в
+			dataList.add(dataTextUri.toString())
 		}
 		cursor.close()
 		return dataList

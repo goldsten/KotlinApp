@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kotlinapp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -11,9 +10,6 @@
         android:theme="@style/Theme.KotlinApp">
         <activity
             android:name=".EditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivitySecond"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

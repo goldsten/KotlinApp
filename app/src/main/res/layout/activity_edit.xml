@@ -45,13 +45,13 @@
             android:gravity="start|top"
             android:hint="Notes"
             android:inputType="textShortMessage|textLongMessage|textMultiLine"
-            android:lines="15" />
+            android:lines="10" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="200dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -59,12 +59,14 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/notes_textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/notes_textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/notes_textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/notes_textInputLayout"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -72,30 +74,30 @@
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <ImageButton
-            android:id="@+id/btnReplaceImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:alpha=".9"
-            android:backgroundTint="#00FFFFFF"
-            android:contentDescription="Replace image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnDeleteImage"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_replace_img" />
-
-        <ImageButton
             android:id="@+id/btnDeleteImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:alpha=".9"
             android:backgroundTint="#00FFFFFF"
             android:contentDescription="Delete image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_delete_img" />
+
+        <ImageButton
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:alpha=".9"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="Select image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnDeleteImage"
+            app:layout_constraintStart_toStartOf="@+id/btnDeleteImage"
+            app:srcCompat="@drawable/ic_select_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="300dp" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fbAddImagу"
