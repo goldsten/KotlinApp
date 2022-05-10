@@ -40,13 +40,13 @@ class DBManager(context: Context) {
 			//помещяем в
 			dataList.add(dataTextTitle.toString())
 
-			val dataTextDesc = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_DESCRIPTION))
+			/*val dataTextDesc = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_DESCRIPTION))
 			//помещяем в
 			dataList.add(dataTextDesc.toString())
 
 			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
 			//помещяем в
-			dataList.add(dataTextUri.toString())
+			dataList.add(dataTextUri.toString())*/
 		}
 		cursor.close()
 		return dataList

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.kotlinapp.DB.DBManager
@@ -44,6 +45,8 @@ class EditActivity : AppCompatActivity() {
 				if (title != "" && notes != ""){
 					// записываем в БД
 					managerDB.isertToDB(title, notes, tempImageURI)
+					Toast.makeText(this@EditActivity,"Сохранилось", Toast.LENGTH_SHORT).show()
+					finish()
 				} else {
 					edTitle.error = "Надо заполнить"
 					edNotes.error = "Надо заполнить"
