@@ -3,6 +3,7 @@ package com.example.kotlinapp.DB
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import com.example.kotlinapp.ListItem
 
 // класс который открывает БД
 // DBHelper ждет context
@@ -23,30 +24,31 @@ class DBManager(context: Context) {
 		val values = ContentValues().apply {
 			// put(key: Type, velues: Type)
 			put(DBNameClass.TABLE_TITLE, title)
-			put(DBNameClass.TABLE_DESCRIPTION, description)
+			put(DBNameClass.TABLE_NOTE, description)
 			put(DBNameClass.TABLE_URI_IMAGE, uri)
 		}
 		// указываем в какую БД запись
 		db?.insert(DBNameClass.TABLE_NAME, null, values)
 	}
 	// СЧИТЫВАНИЕ с БД
-	fun readDBData() : ArrayList<String>{
-		val dataList = ArrayList<String>()
+	// ArrayList<listItem> то что мы возвращаем когда считываем БД
+	fun readDBData() : ArrayList<ListItem>{
+		//то, куда записываем когда считываем
+		val dataList = ArrayList<ListItem>()
 		//заполняем
 		val cursor = db?.query(DBNameClass.TABLE_NAME, null, null, null, null, null, null)
 		// достаем записаные данные из cursor
 		while (cursor?.moveToNext()!!){
 			val dataTextTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE))
-			//помещяем в
-			dataList.add(dataTextTitle.toString())
-
-			/*val dataTextDesc = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_DESCRIPTION))
-			//помещяем в
-			dataList.add(dataTextDesc.toString())
-
+			val dataTextNotes = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE))
 			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
+			//записываем в массив данные с ...
+			val item = ListItem()
+			item.title = dataTextTitle
+			item.note = dataTextNotes
+			item.uri = dataTextUri
 			//помещяем в
-			dataList.add(dataTextUri.toString())*/
+			dataList.add(item)
 		}
 		cursor.close()
 		return dataList

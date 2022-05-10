@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
 	// создаем менеджер БД (context)
 	val managerDB = DBManager(this)
-	val Adapter = rcAdapter(ArrayList())
+	// передаем context
+	val Adapter = rcAdapter(ArrayList(), this)
 
 	override fun onCreate(s: Bundle?) {
 		super.onCreate(s)
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 	override fun onResume() {
 		super.onResume()
 		managerDB.openDB()
+		init()
 
 		fillAdapter()
 	}

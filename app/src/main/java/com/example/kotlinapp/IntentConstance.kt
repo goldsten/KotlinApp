@@ -1,0 +1,7 @@
+package com.example.kotlinapp
+
+object IntentConstance {
+	const val I_TITLE_KEY ="title_key"
+	const val I_NOTE_KEY ="note_key"
+	const val I_URI_KEY ="uri_key"
+}
