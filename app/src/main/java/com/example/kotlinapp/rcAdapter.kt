@@ -64,4 +64,14 @@ class rcAdapter(listMain:ArrayList<ListItem>, contextMainActivity:Context) : Rec
 		//сообщаем адаптеру что данные изменились
 		notifyDataSetChanged()
 	}
+	// оичщиаем видимую часть в адаптере
+	fun removeItem(position:Int){
+		// удаляем из списка
+		listArray.removeAt(position)
+		// сообщаем адаптеру что нужно показать новый размер списка
+		notifyItemRangeChanged(0, listArray.size)
+		// указываем позицию на которой удалили
+		notifyItemRemoved(position)
+
+	}
 }
