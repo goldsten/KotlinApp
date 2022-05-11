@@ -34,6 +34,7 @@ class EditActivity : AppCompatActivity() {
 
 		// ВСЕ ЗАПИСЫВАТЬ ТУТ !!!
 		binding.apply {
+			fbEdit.visibility = View.GONE
 
 			// принимаем intent
 			// записываем интент который получаем
@@ -49,6 +50,10 @@ class EditActivity : AppCompatActivity() {
 					id = i.getIntExtra(IntentConstance.I_ID_KEY, 0)
 
 					isEditState = true
+
+					edTitle.isEnabled = false
+					edNotes.isEnabled = false
+					fbEdit.visibility = View.VISIBLE
 
 					if (i.getStringExtra(IntentConstance.I_URI_KEY) != "empty"){
 						imageLayout.visibility = View.VISIBLE
@@ -96,6 +101,11 @@ class EditActivity : AppCompatActivity() {
 					edTitle.error = "Надо заполнить"
 					edNotes.error = "Надо заполнить"
 				}
+			}
+			fbEdit.setOnClickListener {
+				edTitle.isEnabled = true
+				edNotes.isEnabled = true
+				fbEdit.visibility = View.GONE
 			}
 			// регистрируем launcher на получение данных с activity2
 			launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
