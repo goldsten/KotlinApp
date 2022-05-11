@@ -3,6 +3,7 @@ package com.example.kotlinapp.DB
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import com.example.kotlinapp.ListItem
 
 // класс который открывает БД
@@ -39,11 +40,13 @@ class DBManager(context: Context) {
 		val cursor = db?.query(DBNameClass.TABLE_NAME, null, null, null, null, null, null)
 		// достаем записаные данные из cursor
 		while (cursor?.moveToNext()!!){
-			val dataTextTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE)).toString()
-			val dataTextNotes = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE)).toString()
-			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE)).toString()
+			val dataID = cursor.getInt(cursor.getColumnIndexOrThrow(BaseColumns._ID))
+			val dataTextTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE))
+			val dataTextNotes = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE))
+			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
 			//записываем в массив данные с ...
 			val item = ListItem()
+			item.id = dataID
 			item.title = dataTextTitle
 			item.note = dataTextNotes
 			item.uri = dataTextUri
@@ -52,6 +55,13 @@ class DBManager(context: Context) {
 		}
 		cursor.close()
 		return dataList
+	}
+	// УДАЛЕНИЕ С БД
+	fun removeItemFromDB(id: String){
+		var selectID = BaseColumns._ID + "=$id"
+		// указываем в какую БД запись
+		//(в таблице, где ид = ид)
+		db?.delete(DBNameClass.TABLE_NAME, selectID, null)
 	}
 	fun closeDB(){
 		dbHelper.close()

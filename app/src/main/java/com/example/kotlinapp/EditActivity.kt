@@ -20,6 +20,10 @@ class EditActivity : AppCompatActivity() {
 	// создаем менеджер БД (context)
 	val managerDB = DBManager(this)
 
+	fun Message(message:String){
+		return Toast.makeText(this@EditActivity, message, Toast.LENGTH_SHORT).show()
+	}
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		binding = ActivityEditBinding.inflate(layoutInflater)
@@ -74,7 +78,9 @@ class EditActivity : AppCompatActivity() {
 				if (title != "" && notes != ""){
 					// записываем в БД
 					managerDB.isertToDB(title, notes, tempImageURI)
-				Toast.makeText(this@EditActivity,"Сохранилось", Toast.LENGTH_SHORT).show()
+
+					Message("Сохранено")
+
 					finish()
 				} else {
 					edTitle.error = "Надо заполнить"

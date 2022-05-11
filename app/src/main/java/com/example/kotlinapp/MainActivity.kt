@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
 	// передаем context
 	val Adapter = rcAdapter(ArrayList(), this)
 
+	fun Message(message:String){
+		return Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+	}
+
 	override fun onCreate(s: Bundle?) {
 		super.onCreate(s)
 		binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 			val i = Intent(this, EditActivity::class.java)
 			startActivity(i)
 		}
-
 	}
 
 	override fun onResume() {
@@ -38,11 +42,11 @@ class MainActivity : AppCompatActivity() {
 		init()
 		fillAdapter()
 	}
-
 	override fun onDestroy() {
 		super.onDestroy()
 		managerDB.closeDB()
 	}
+
 	// инициализация адаптера
 	fun init(){
 		// if (){}
@@ -80,7 +84,8 @@ class MainActivity : AppCompatActivity() {
 			// SWIPE
 			override fun onSwiped(viewHolder : RecyclerView.ViewHolder, direction : Int) {
 				// удаляем элемент на позиции
-				Adapter.removeItem(viewHolder.adapterPosition)
+				Adapter.removeItem(viewHolder.adapterPosition, managerDB)
+				Message("Заметка удалена")
 			}
 
 		})

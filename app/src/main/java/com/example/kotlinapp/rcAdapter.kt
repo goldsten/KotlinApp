@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinapp.DB.DBManager
 
 // <где будет создан холдер, название холдера>
 //rcAdapter(конструктор массива с типом)
@@ -65,7 +66,9 @@ class rcAdapter(listMain:ArrayList<ListItem>, contextMainActivity:Context) : Rec
 		notifyDataSetChanged()
 	}
 	// оичщиаем видимую часть в адаптере
-	fun removeItem(position:Int){
+	fun removeItem(position:Int, dbManager : DBManager){
+		// перед тем как удалять визуально, нужно удалить с БД
+		dbManager.removeItemFromDB(listArray[position].id.toString())
 		// удаляем из списка
 		listArray.removeAt(position)
 		// сообщаем адаптеру что нужно показать новый размер списка
