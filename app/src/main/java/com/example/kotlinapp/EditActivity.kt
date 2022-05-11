@@ -16,6 +16,8 @@ class EditActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityEditBinding
 	private var launcher: ActivityResultLauncher<Intent>? = null
 	var tempImageURI = "empty"
+	var id =0
+	var isEditState = false
 
 	// создаем менеджер БД (context)
 	val managerDB = DBManager(this)
@@ -43,6 +45,11 @@ class EditActivity : AppCompatActivity() {
 
 					edTitle.setText(i.getStringExtra(IntentConstance.I_TITLE_KEY))
 					edNotes.setText(i.getStringExtra(IntentConstance.I_NOTE_KEY))
+
+					id = i.getIntExtra(IntentConstance.I_ID_KEY, 0)
+
+					isEditState = true
+
 					if (i.getStringExtra(IntentConstance.I_URI_KEY) != "empty"){
 						imageLayout.visibility = View.VISIBLE
 
@@ -76,11 +83,14 @@ class EditActivity : AppCompatActivity() {
 				val title = edTitle.text.toString()
 				val notes = edNotes.text.toString()
 				if (title != "" && notes != ""){
-					// записываем в БД
-					managerDB.isertToDB(title, notes, tempImageURI)
-
-					Message("Сохранено")
-
+					if (isEditState){
+						managerDB.updateDB(id, title, notes, tempImageURI)
+						Message("Обновлено")
+					} else {
+						// записываем в БД
+						managerDB.isertToDB(title, notes, tempImageURI)
+						Message("Сохранено")
+					}
 					finish()
 				} else {
 					edTitle.error = "Надо заполнить"

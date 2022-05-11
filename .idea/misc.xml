@@ -6,6 +6,7 @@
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.1085" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable-anydpi/ic_delete_img.xml" value="0.16" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable-anydpi/ic_replace_img.xml" value="0.16" />
+        <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable-anydpi/ic_search.xml" value="0.158" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable-anydpi/ic_select_img.xml" value="0.16" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable/clip_24.xml" value="0.16" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/drawable/edit_text_styles.xml" value="0.5" />
@@ -13,6 +14,7 @@
         <entry key="..\:/folder/KotlinApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/layout/activity_main_second.xml" value="0.3527777777777778" />
         <entry key="..\:/folder/KotlinApp/app/src/main/res/layout/rc_item.xml" value="0.287962962962963" />
+        <entry key="..\:/folder/KotlinApp/app/src/main/res/menu/options_menu.xml" value="0.3712962962962963" />
       </map>
     </option>
   </component>

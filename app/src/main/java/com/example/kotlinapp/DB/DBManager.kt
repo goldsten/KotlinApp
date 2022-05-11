@@ -33,11 +33,16 @@ class DBManager(context: Context) {
 	}
 	// СЧИТЫВАНИЕ с БД
 	// ArrayList<listItem> то что мы возвращаем когда считываем БД
-	fun readDBData() : ArrayList<ListItem>{
+	fun readDBData(searchText: String) : ArrayList<ListItem>{
 		//то, куда записываем когда считываем
 		val dataList = ArrayList<ListItem>()
+		// передаем массив с того, что вводит пользователь в поиск
+		// % указывает поиск по символу
+		val search = arrayOf("%$searchText%")
+		// ищем в title
+		val selection = "${DBNameClass.TABLE_TITLE} like ?"
 		//заполняем
-		val cursor = db?.query(DBNameClass.TABLE_NAME, null, null, null, null, null, null)
+		val cursor = db?.query(DBNameClass.TABLE_NAME, null, selection, search, null, null, null)
 		// достаем записаные данные из cursor
 		while (cursor?.moveToNext()!!){
 			val dataID = cursor.getInt(cursor.getColumnIndexOrThrow(BaseColumns._ID))
@@ -56,9 +61,20 @@ class DBManager(context: Context) {
 		cursor.close()
 		return dataList
 	}
+	// ОБНОВЛЕНИЕ БД
+	fun updateDB(id:Int, title: String, note:String, uri: String){
+		val selectID = BaseColumns._ID + "=$id"
+		val values = ContentValues().apply {
+			put(DBNameClass.TABLE_TITLE, title)
+			put(DBNameClass.TABLE_NOTE, note)
+			put(DBNameClass.TABLE_URI_IMAGE, uri)
+		}
+		// указываем в какую БД запись
+		db?.update(DBNameClass.TABLE_NAME, values, selectID,null)
+	}
 	// УДАЛЕНИЕ С БД
 	fun removeItemFromDB(id: String){
-		var selectID = BaseColumns._ID + "=$id"
+		val selectID = BaseColumns._ID + "=$id"
 		// указываем в какую БД запись
 		//(в таблице, где ид = ид)
 		db?.delete(DBNameClass.TABLE_NAME, selectID, null)

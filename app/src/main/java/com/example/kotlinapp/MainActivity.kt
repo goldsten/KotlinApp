@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 		setContentView(binding.root)
 
 		init()
+		initSearch()
 
 		binding.fbNew.setOnClickListener {
 			// создаем переход в editActivity
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 	}
 	//
 	fun fillAdapter(){
-		val list = managerDB.readDBData()
+		val list = managerDB.readDBData("")
 		// считываем с БД, передаем в Adapter и обновляем список
 		Adapter.updateAdapter(list)
 		if(list.size > 0) {
@@ -70,6 +72,24 @@ class MainActivity : AppCompatActivity() {
 			binding.tvNoElements.visibility = View.VISIBLE
 		}
 	}
+	// SEARCH
+	private fun initSearch(){
+		// слушатель замечает любые изменения в searchView
+		binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+			// поиск по нажатию кнопки
+			override fun onQueryTextSubmit(query : String?) : Boolean {return true}
+			// поиск по вводу символов
+			override fun onQueryTextChange(newText : String?) : Boolean {
+				// обновляем адаптер
+				val list = managerDB.readDBData(newText!!)
+				// считываем с БД, передаем в Adapter и обновляем список
+				Adapter.updateAdapter(list)
+
+				return true
+			}
+		})
+	}
+
 	private fun getSwipeManager(): ItemTouchHelper{
 		//SimpleCallback() указываем что делать и в каком направлении
 		//return ItemTouchHelper(object:ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT))

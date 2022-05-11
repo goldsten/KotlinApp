@@ -26,6 +26,7 @@ class rcAdapter(listMain:ArrayList<ListItem>, contextMainActivity:Context) : Rec
 			itemView.setOnClickListener {
 				// передаем значения в EditActivity
 				val intent = Intent(context, EditActivity::class.java).apply{
+					putExtra(IntentConstance.I_ID_KEY, item.id)
 					putExtra(IntentConstance.I_TITLE_KEY, item.title)
 					putExtra(IntentConstance.I_NOTE_KEY, item.note)
 					putExtra(IntentConstance.I_URI_KEY, item.uri)
