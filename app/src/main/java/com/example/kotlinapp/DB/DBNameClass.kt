@@ -8,7 +8,7 @@ object DBNameClass : BaseColumns {
 	const val TABLE_NAME ="sql_table"
 	// содержание таблицы
 	const val TABLE_TITLE ="title"
-	const val TABLE_NOTE ="notes"
+	const val TABLE_NOTE ="note"
 	const val TABLE_URI_IMAGE ="uri"
 
 	// версия

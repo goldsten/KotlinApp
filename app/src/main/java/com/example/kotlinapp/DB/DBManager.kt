@@ -31,23 +31,24 @@ class DBManager(context: Context) {
 		db?.insert(DBNameClass.TABLE_NAME, null, values)
 	}
 	// СЧИТЫВАНИЕ с БД
+	// ArrayList<listItem> то что мы возвращаем когда считываем БД
 	fun readDBData() : ArrayList<ListItem>{
+		//то, куда записываем когда считываем
 		val dataList = ArrayList<ListItem>()
 		//заполняем
 		val cursor = db?.query(DBNameClass.TABLE_NAME, null, null, null, null, null, null)
 		// достаем записаные данные из cursor
 		while (cursor?.moveToNext()!!){
-			val dataTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE))
-			val dataNote = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE))
-			val dataUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
-			val list = ListItem()
-			list.title = dataTitle
-			list.note = dataNote
-			list.uri = dataUri
+			val dataTextTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE)).toString()
+			val dataTextNotes = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE)).toString()
+			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE)).toString()
+			//записываем в массив данные с ...
+			val item = ListItem()
+			item.title = dataTextTitle
+			item.note = dataTextNotes
+			item.uri = dataTextUri
 			//помещяем в
-			dataList.add(list)
-
-
+			dataList.add(item)
 		}
 		cursor.close()
 		return dataList
