@@ -14,27 +14,23 @@ class rcAdapter(listMain:ArrayList<ListItem>, contextMainActivity:Context) : Rec
 	val listArray = listMain
 	val context = contextMainActivity
 
-	class rcHolder(itemView: View, contextViewHolde:Context) : RecyclerView.ViewHolder(itemView) {
+	class rcHolder(itemView: View, contextHolder:Context) : RecyclerView.ViewHolder(itemView) {
 		// выбираем элемент в котором и которой выводить
 		val tvTitle: TextView = itemView.findViewById(R.id.rcTitle)
-		val context = contextViewHolde
+		val context = contextHolder
 
 		fun setData(item:ListItem){
 			tvTitle.text = item.title
-			// слушатель для всего элемента
 			itemView.setOnClickListener {
-				// передаем значения в EditActivity
-				val intent = Intent(context, EditActivity::class.java).apply{
+				val intent = Intent(context, EditActivity::class.java).apply {
 					putExtra(IntentConstance.I_TITLE_KEY, item.title)
 					putExtra(IntentConstance.I_NOTE_KEY, item.note)
 					putExtra(IntentConstance.I_URI_KEY, item.uri)
 				}
-				// запускаем intent
 				context.startActivity(intent)
 			}
 		}
 	}
-
 	// сколько элементов в списке столько придется отрисовать (размер массива)
 	// спископередаем списко и размер
 	override fun getItemCount(): Int {
