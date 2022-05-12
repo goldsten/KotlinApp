@@ -46,7 +46,8 @@
             android:gravity="start|top"
             android:hint="Notes"
             android:inputType="textShortMessage|textLongMessage|textMultiLine"
-            android:lines="10" />
+            android:lines="10"
+            android:textColor="@color/edit_text_color" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

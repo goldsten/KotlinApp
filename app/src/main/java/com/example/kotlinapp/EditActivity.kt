@@ -1,6 +1,7 @@
 package com.example.kotlinapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import com.example.kotlinapp.DB.DBManager
 import com.example.kotlinapp.databinding.ActivityEditBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EditActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityEditBinding
@@ -58,15 +61,15 @@ class EditActivity : AppCompatActivity() {
 					if (i.getStringExtra(IntentConstance.I_URI_KEY) != "empty"){
 						imageLayout.visibility = View.VISIBLE
 
-//						imageView.setImageURI(Uri.parse(i.getStringExtra(IntentConstance.I_URI_KEY)))
-						imageView.setImageURI(i.getStringExtra(IntentConstance.I_URI_KEY)!!.toUri())
+						tempImageURI = i.getStringExtra(IntentConstance.I_URI_KEY)!!
+
+						imageView.setImageURI(Uri.parse(tempImageURI))
 
 						btnDeleteImage.visibility = View.GONE
 						btnSelectImage.visibility = View.GONE
 					}
 				}
 			}
-
 
 			fbAddImag.setOnClickListener {
 				imageLayout.visibility = View.VISIBLE
@@ -75,6 +78,7 @@ class EditActivity : AppCompatActivity() {
 			btnDeleteImage.setOnClickListener {
 				imageLayout.visibility = View.GONE
 				fbAddImag.visibility = View.VISIBLE
+				tempImageURI = "empty"
 			}
 			btnSelectImage.setOnClickListener {
 				// вызывает приложение для выбора картинок ACTION_PICK - верменная ссылка
@@ -89,11 +93,11 @@ class EditActivity : AppCompatActivity() {
 				val notes = edNotes.text.toString()
 				if (title != "" && notes != ""){
 					if (isEditState){
-						managerDB.updateDB(id, title, notes, tempImageURI)
+						managerDB.updateDB(id, title, notes, tempImageURI, getTime())
 						Message("Обновлено")
 					} else {
 						// записываем в БД
-						managerDB.isertToDB(title, notes, tempImageURI)
+						managerDB.isertToDB(title, notes, tempImageURI, getTime())
 						Message("Сохранено")
 					}
 					finish()
@@ -106,6 +110,13 @@ class EditActivity : AppCompatActivity() {
 				edTitle.isEnabled = true
 				edNotes.isEnabled = true
 				fbEdit.visibility = View.GONE
+
+				fbAddImag.visibility = View.VISIBLE
+
+				if (tempImageURI == "empty") return@setOnClickListener
+
+				btnSelectImage.visibility = View.VISIBLE
+				btnDeleteImage.visibility = View.VISIBLE
 			}
 			// регистрируем launcher на получение данных с activity2
 			launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
@@ -126,8 +137,16 @@ class EditActivity : AppCompatActivity() {
 				}
 			}
 
+
 		}// *----BINDING
 	}// *----ONCREATE
+
+	// получение времени когда была сделана заметка
+	private fun getTime():String{
+		val time = Calendar.getInstance().time
+		val formatter = SimpleDateFormat("dd-MM-yy | kk:mm", Locale.getDefault())
+		return formatter.format(time)
+	}
 
 	override fun onResume() { // ОТКРЫТИЕ БД
 		super.onResume()

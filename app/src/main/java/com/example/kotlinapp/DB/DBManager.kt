@@ -20,13 +20,14 @@ class DBManager(context: Context) {
 		db = dbHelper.writableDatabase
 	}
 	//ЗАПИСЬ в БД
-	fun isertToDB(title: String, note:String, uri: String){
+	fun isertToDB(title: String, note:String, uri: String, time:String){
 		//значения которые передаются в БД
 		val values = ContentValues().apply {
 			// put(key: Type, velues: Type)
 			put(DBNameClass.TABLE_TITLE, title)
 			put(DBNameClass.TABLE_NOTE, note)
 			put(DBNameClass.TABLE_URI_IMAGE, uri)
+			put(DBNameClass.TABLE_TIME, time)
 		}
 		// указываем в какую БД запись
 		db?.insert(DBNameClass.TABLE_NAME, null, values)
@@ -49,12 +50,14 @@ class DBManager(context: Context) {
 			val dataTextTitle = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TITLE))
 			val dataTextNotes = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_NOTE))
 			val dataTextUri = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_URI_IMAGE))
+			val dataTextTime = cursor.getString(cursor.getColumnIndexOrThrow(DBNameClass.TABLE_TIME))
 			//записываем в массив данные с ...
 			val item = ListItem()
 			item.id = dataID
 			item.title = dataTextTitle
 			item.note = dataTextNotes
 			item.uri = dataTextUri
+			item.time = dataTextTime
 			//помещяем в
 			dataList.add(item)
 		}
@@ -62,12 +65,13 @@ class DBManager(context: Context) {
 		return dataList
 	}
 	// ОБНОВЛЕНИЕ БД
-	fun updateDB(id:Int, title: String, note:String, uri: String){
+	fun updateDB(id:Int, title: String, note:String, uri: String, time: String){
 		val selectID = BaseColumns._ID + "=$id"
 		val values = ContentValues().apply {
 			put(DBNameClass.TABLE_TITLE, title)
 			put(DBNameClass.TABLE_NOTE, note)
 			put(DBNameClass.TABLE_URI_IMAGE, uri)
+			put(DBNameClass.TABLE_TIME, time)
 		}
 		// указываем в какую БД запись
 		db?.update(DBNameClass.TABLE_NAME, values, selectID,null)

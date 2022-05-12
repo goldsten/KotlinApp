@@ -18,10 +18,12 @@ class rcAdapter(listMain:ArrayList<ListItem>, contextMainActivity:Context) : Rec
 	class rcHolder(itemView: View, contextViewHolde:Context) : RecyclerView.ViewHolder(itemView) {
 		// выбираем элемент в котором и которой выводить
 		val tvTitle: TextView = itemView.findViewById(R.id.rcTitle)
+		val tvTime: TextView = itemView.findViewById(R.id.rcTime)
 		val context = contextViewHolde
 
 		fun setData(item:ListItem){
 			tvTitle.text = item.title
+			tvTime.text = item.time
 			// слушатель для всего элемента
 			itemView.setOnClickListener {
 				// передаем значения в EditActivity
