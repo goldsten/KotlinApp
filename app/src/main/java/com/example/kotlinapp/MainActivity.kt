@@ -12,5 +12,19 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(s)
 		setContentView(binding.root)
 
+
+		binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
+			when (menuItem.itemId) {
+				R.id.search -> {
+					// Handle search icon press
+					true
+				}
+				R.id.more -> {
+					// Handle more item (inside overflow menu) press
+					true
+				}
+				else -> false
+			}
+		}
 	}
 }
