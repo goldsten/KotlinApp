@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.KotlinApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.KotlinApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/status_bar</item>
+        <item name="colorPrimaryVariant">@color/header</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,17 +12,24 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+<!--        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>-->
     </style>
 
-    <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
-        <item name="shapeAppearanceOverlay">@style/FabShapeStyle</item>
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
-    <!--	<style name="FabShapeStyle" parent="ShapeAppearance.Material3.SmallComponent">-->
-    <style name="FabShapeStyle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerSize">50%</item>
-        <item name="cornerFamilyBottomLeft">rounded</item>
-        <item name="cornerFamilyBottomRight">rounded</item>
-        <item name="cornerFamilyTopLeft">cut</item>
-        <item name="cornerFamilyTopRight">cut</item>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+<!--        background-->
+        <item name="colorSurface">@color/white</item>
+<!--        color active text-->
+        <item name="colorOnSurface">#9DFF00</item>
+<!--        inactive item and text-->
+        <item name="colorOnSurfaceVariant">@color/item_bar_unchecked</item>
+<!--        color icon-->
+        <item name="colorOnSecondaryContainer">@color/teal_200</item>
+<!--      color circle active icon-->
+        <item name="textAppearanceTitleSmall">@color/purple_200</item>
+
     </style>
 </resources>
