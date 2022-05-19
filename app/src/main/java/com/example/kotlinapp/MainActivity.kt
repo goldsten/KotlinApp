@@ -41,3 +41,21 @@ class MainActivity : AppCompatActivity() {
 
 	}
 }
+/*
+*
+* <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+<!--        background-->
+        <item name="colorSurface">@color/white</item>
+<!--        active color text-->
+        <item name="colorOnSurface">#9DFF00</item>
+<!--        inactive color Icon/Text label-->
+        <item name="colorOnSurfaceVariant">@color/item_bar_unchecked</item>
+<!--        active color Icon/-->
+        <item name="colorOnSecondaryContainer">@color/teal_200</item>
+<!--        active color circle icon-->
+        <item name="itemTextAppearanceInactive">@color/itemTextAppearanceActive</item>
+        <item name="itemTextAppearanceActive">@color/itemTextAppearanceInactive</item>
+<!--        color around active item-->
+        <item name="colorPrimary">@color/design_default_color_error</item>
+    </style>
+* */
