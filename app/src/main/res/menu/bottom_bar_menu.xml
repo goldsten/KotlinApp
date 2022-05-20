@@ -17,11 +17,18 @@
         android:orderInCategory="2"
         />
     <item
+        android:id="@+id/follow"
+        android:title="Follow"
+        android:enabled="true"
+        android:icon="@drawable/ic_like"
+        android:orderInCategory="3"
+        />
+    <item
         android:id="@+id/profile"
         android:title="Profile"
         android:enabled="true"
         android:icon="@drawable/ic_profile"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         />
 
 </menu>

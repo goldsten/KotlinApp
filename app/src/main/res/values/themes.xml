@@ -2,8 +2,8 @@
 	<!-- Base application theme. -->
 		<style name="Theme.KotlinApp" parent="Theme.Material3.DayNight.NoActionBar">
 		<!-- Primary brand color. -->
-		<item name="colorPrimary">@color/status_bar</item>
-		<item name="colorPrimaryVariant">@color/header</item>
+		<item name="colorPrimary">@color/header</item>
+		<item name="colorPrimaryVariant">@color/status_bar</item>
 		<item name="colorOnPrimary">@color/white</item>
 		<!-- Secondary brand color. -->
 		<item name="colorSecondary">@color/teal_200</item>

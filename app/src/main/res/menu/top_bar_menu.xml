@@ -6,6 +6,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_search"
         android:orderInCategory="1"
-        android:title="Shop"
-        app:showAsAction="ifRoom" />
+        android:title="Search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
 </menu>

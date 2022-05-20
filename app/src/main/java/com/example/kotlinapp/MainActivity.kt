@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 					Message("Fragment ${item.itemId}")
 					true
 				}
+				R.id.follow -> {
+					// Respond to navigation item 2 click
+					Message("Fragment ${item.itemId}")
+					true
+				}
 				R.id.profile -> {
 					// Respond to navigation item 2 click
 					Message("Fragment ${item.itemId}")
