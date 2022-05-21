@@ -9,7 +9,6 @@ import com.example.kotlinapp.fragments.FragmentItemFirst
 import com.example.kotlinapp.fragments.FragmentItemFourth
 import com.example.kotlinapp.fragments.FragmentItemSecond
 import com.example.kotlinapp.fragments.FragmentItemThird
-import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
