@@ -22,18 +22,17 @@ class FragmentItemFirst : Fragment() {
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		val binding = FragmentItemFirstBinding.inflate(inflater, container,false)
-			binding.apply {
-				// как будет заполняться список
-				rcCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-				// выбрать адаптер
-				rcCategory.adapter = adapter
-				for (i in listTitle.indices){
-					val title = TitleList(listTitle[i])
-					adapter.addItem(title)
-				}
-
+		binding.apply {
+			// как будет заполняться список
+			rcCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+			// выбрать адаптер
+			rcCategory.adapter = adapter
+			for (i in listTitle.indices){
+				val title = TitleList(listTitle[i])
+				adapter.addItem(title)
 			}
-			return binding.root
+		}
+		return binding.root
 	}
 
 	companion object {
