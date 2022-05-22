@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 		setContentView(binding.root)
 		binding.apply {
 			// default Fragment
-			supportFragmentManager.beginTransaction().replace(R.id.horizontalScroll1, FragmentItemFirst.newInstance()).commit()
 
 			bottomBar.setOnItemSelectedListener { item ->
 				when(item.itemId) {
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
 					else -> false
 				}
 			}
-
 
 
 		} // END BINDING

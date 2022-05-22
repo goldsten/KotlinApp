@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="status_bar">#80FFF8E1</color>
+    <color name="status_bar">@color/Charcoal</color>
     <color name="header">#B2EBF2</color>
     <color name="red">#DA0303</color>
     <color name="teal_700">#FF018786</color>
@@ -11,20 +11,21 @@
     <color name="fbutton">#80DEEA</color>
     <color name="transparent">#0080DEEA</color>
 
-<!--    MY COLORS-->
-    <color name="Charcoal">#34282C</color>
-    <color name="LightGold">#BEFFE0B2</color>
-
-
-    <!--    NAVIGATION BAR-->
-    <color name="background_bottom_bar">#80FFF8E1</color>
+<!--    NAVIGATION BAR-->
+    <color name="background_bottom_bar">@color/HoarGold</color>
     <color name="item_icon_tint_active">@color/Charcoal</color>
     <color name="item_icon_tint_inactive">#45000000</color>
-    <color name="item_ripple_color">#80FFD180</color>
+    <color name="item_ripple_color">@color/ObscureGold</color>
 
     <color name="item_text_appearance_active">@color/LightGold</color>
 <!--    <color name="item_text_appearance_inactive">#000</color>-->
 
-    <color name="item_text_color_active">#332D41</color>
+    <color name="item_text_color_active">@color/Charcoal</color>
 <!--    <color name="item_text_color_inactive">#FFECB3</color>-->
+
+<!--    MY COLORS-->
+    <color name="Charcoal">#34282C</color>
+    <color name="LightGold">#BEFFE0B2</color>
+    <color name="ObscureGold">#80FFD180</color>
+    <color name="HoarGold">#80FFF8E1</color>
 </resources>

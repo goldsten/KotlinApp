@@ -11,12 +11,11 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-		<LinearLayout
+		<androidx.constraintlayout.widget.ConstraintLayout
 			 android:id="@+id/AppBarLayout"
 			 android:layout_width="match_parent"
 			 android:layout_height="wrap_content"
 			 android:gravity="center_vertical"
-			 android:orientation="horizontal"
 			 android:padding="10dp"
 			 app:layout_constraintEnd_toEndOf="parent"
 			 app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +30,28 @@
 				 android:focusable="true"
 				 android:src="@drawable/ic_filter"
 				 app:elevation="0dp"
-				 app:fabSize="auto" />
+				 app:fabSize="auto"
+				 app:layout_constraintBottom_toBottomOf="parent"
+				 app:layout_constraintStart_toStartOf="parent"
+				 app:layout_constraintTop_toTopOf="parent"
+				 app:pressedTranslationZ="0dp" />
 
-		</LinearLayout>
+			<com.google.android.material.floatingactionbutton.FloatingActionButton
+				 android:id="@+id/floatingActionButton2"
+				 style="@style/Widget.App.FloatingActionButton"
+				 android:layout_width="wrap_content"
+				 android:layout_height="wrap_content"
+				 android:clickable="true"
+				 android:focusable="true"
+				 app:elevation="0dp"
+				 app:fabSize="auto"
+				 app:layout_constraintBottom_toBottomOf="parent"
+				 app:layout_constraintEnd_toEndOf="parent"
+				 app:layout_constraintTop_toTopOf="parent"
+				 app:pressedTranslationZ="0dp"
+				 app:srcCompat="@drawable/ic_bell" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
 
 		<androidx.constraintlayout.widget.ConstraintLayout
 			 android:id="@+id/main_container"
