@@ -12,27 +12,27 @@
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">@color/status_bar</item>
 		<!-- Customize your theme here. -->
-
 	</style>
 
 <!--TODO: BOTTOM BAR MENU-->
 	<style name="Widget.Material3.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
 		<item name="itemActiveIndicatorStyle">@style/Widget.Material3.BottomNavigationView.ActiveIndicator</item>
 <!--		The distance from the top of the icon/active indicator to the top of the navigation bar item. -->
-		<item name="itemPaddingTop">@dimen/bottom_nav_item_padding_top</item>
+		<item name="itemPaddingTop">		@dimen/bottom_nav_item_padding_top</item>
 <!--		The distance from the bottom of the label to the bottom of the navigation bar item.-->
 		<item name="itemPaddingBottom">	@dimen/bottom_nav_item_padding_bottom</item>
 		<item name="android:minHeight">	@dimen/bottom_nav_min_height</item>
 		<item name="elevation">				@dimen/elevation_level0</item>
 		<item name="android:background"> @drawable/curved_nav_bar</item>
 		<item name="backgroundTint">		@null</item>
-
-		<item name="itemTextAppearanceInactive">?attr/textAppearanceTitleSmall</item>
+<!--		Внешний вид текста, применяемый к меткам неактивных элементов навигации. Установка android:textColor в itemTextAppearanceInactive будет иметь приоритет над android:textColor в itemTextAppearanceActive.
+			Вместо этого установите itemTextColor с помощью ColorStateList, чтобы сделать цвет текста устойчивым к состоянию.-->
 		<item name="itemTextAppearanceActive">?attr/textAppearanceTitleSmall</item>
+		<item name="itemTextAppearanceInactive">?attr/textAppearanceTitleSmall</item>
 
 <!--		color active item circle-->
 		<item name="itemRippleColor">		@color/item_ripple_color</item>
-<!--		color selecter active and inactive icon-->
+<!--		color selector active and inactive icon-->
 		<item name="itemIconTint" >		@drawable/selector_nav_item_menu</item>
 <!--		color active item text-->
 		<item name="itemTextColor">		@color/item_text_color_active</item>
@@ -71,10 +71,22 @@
 		<item name="android:color">@color/Charcoal</item>
 	</style>
 
-	<style name="myCustomThemeForNormalFab" parent="">
+	<style name="myCustomThemeForNormalFab">
 		<item name="colorSecondary">@color/HoarGold</item>
 <!--		this attribute gives makes the change in the text and icon color of the FAB-->
 		<item name="colorOnSecondary">@color/Charcoal</item>
 	</style>
+
+<!--TODO: CARD main container-->
+	<style name="MainCardView" parent="Widget.Material3.CardView.Outlined">
+		<item name="strokeColor">@drawable/selector_card_state</item>
+		<item name="strokeWidth">@dimen/strokeWeight</item>
+		<item name="cardBackgroundColor">@color/HoarGold</item>
+		<item name="cardElevation">@dimen/cardElevation</item>
+		<item name="rippleColor">@color/red</item>
+	</style>
+
+
+
 
 </resources>

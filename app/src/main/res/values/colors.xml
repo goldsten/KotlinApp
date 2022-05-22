@@ -10,6 +10,8 @@
 
     <color name="fbutton">#80DEEA</color>
     <color name="transparent">#0080DEEA</color>
+    <color name="body_text_color">#303030</color>
+    <color name="body_color">#F9F9F9</color>
 
 <!--    NAVIGATION BAR-->
     <color name="background_bottom_bar">@color/HoarGold</color>
@@ -19,7 +21,6 @@
 
     <color name="item_text_appearance_active">@color/LightGold</color>
 <!--    <color name="item_text_appearance_inactive">#000</color>-->
-
     <color name="item_text_color_active">@color/Charcoal</color>
 <!--    <color name="item_text_color_inactive">#FFECB3</color>-->
 

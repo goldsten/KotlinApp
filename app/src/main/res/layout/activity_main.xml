@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/coordinatorLayout"
@@ -8,100 +8,119 @@
 	tools:context=".MainActivity">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		 android:id="@+id/AppBarLayout"
+		 android:layout_width="match_parent"
+		 android:layout_height="wrap_content"
+		 android:background="@color/body_color"
+		 android:gravity="center_vertical"
+		 android:paddingStart="15dp"
+		 android:paddingTop="10dp"
+		 android:paddingEnd="15dp"
+		 android:paddingBottom="10dp"
+		 app:layout_constraintEnd_toEndOf="parent"
+		 app:layout_constraintStart_toStartOf="parent"
+		 app:layout_constraintTop_toTopOf="parent">
 
-		<androidx.constraintlayout.widget.ConstraintLayout
-			 android:id="@+id/AppBarLayout"
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
+			 android:id="@+id/top_Bar_filter"
+			 style="@style/Widget.App.FloatingActionButton"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:clickable="true"
+			 android:focusable="true"
+			 android:src="@drawable/ic_filter"
+			 app:elevation="0dp"
+			 app:fabSize="auto"
+			 app:layout_constraintBottom_toBottomOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toTopOf="parent"
+			 app:pressedTranslationZ="0dp" />
+
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
+			 android:id="@+id/top_bar_bell"
+			 style="@style/Widget.App.FloatingActionButton"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:clickable="true"
+			 android:focusable="true"
+			 app:elevation="0dp"
+			 app:fabSize="auto"
+			 app:layout_constraintBottom_toBottomOf="parent"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintTop_toTopOf="parent"
+			 app:pressedTranslationZ="0dp"
+			 app:srcCompat="@drawable/ic_bell" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		 android:id="@+id/main_container"
+		 android:layout_width="match_parent"
+		 android:layout_height="0dp"
+		 android:background="@color/body_color"
+		 app:layout_constraintBottom_toTopOf="@+id/bottom_Bar"
+		 app:layout_constraintEnd_toEndOf="parent"
+		 app:layout_constraintStart_toStartOf="parent"
+		 app:layout_constraintTop_toBottomOf="@+id/AppBarLayout">
+
+
+		<LinearLayout
+			 android:id="@+id/horizontalScroll1"
 			 android:layout_width="match_parent"
 			 android:layout_height="wrap_content"
-			 android:gravity="center_vertical"
-			 android:padding="10dp"
+			 android:orientation="horizontal"
 			 app:layout_constraintEnd_toEndOf="parent"
 			 app:layout_constraintStart_toStartOf="parent"
 			 app:layout_constraintTop_toTopOf="parent">
 
-			<com.google.android.material.floatingactionbutton.FloatingActionButton
-				 android:id="@+id/top_Bar_filter"
-				 style="@style/Widget.App.FloatingActionButton"
-				 android:layout_width="wrap_content"
-				 android:layout_height="wrap_content"
-				 android:clickable="true"
-				 android:focusable="true"
-				 android:src="@drawable/ic_filter"
-				 app:elevation="0dp"
-				 app:fabSize="auto"
-				 app:layout_constraintBottom_toBottomOf="parent"
-				 app:layout_constraintStart_toStartOf="parent"
-				 app:layout_constraintTop_toTopOf="parent"
-				 app:pressedTranslationZ="0dp" />
+		</LinearLayout>
 
-			<com.google.android.material.floatingactionbutton.FloatingActionButton
-				 android:id="@+id/floatingActionButton2"
-				 style="@style/Widget.App.FloatingActionButton"
-				 android:layout_width="wrap_content"
-				 android:layout_height="wrap_content"
-				 android:clickable="true"
-				 android:focusable="true"
-				 app:elevation="0dp"
-				 app:fabSize="auto"
-				 app:layout_constraintBottom_toBottomOf="parent"
-				 app:layout_constraintEnd_toEndOf="parent"
-				 app:layout_constraintTop_toTopOf="parent"
-				 app:pressedTranslationZ="0dp"
-				 app:srcCompat="@drawable/ic_bell" />
-
-		</androidx.constraintlayout.widget.ConstraintLayout>
-
-		<androidx.constraintlayout.widget.ConstraintLayout
-			 android:id="@+id/main_container"
+		<LinearLayout
+			 android:id="@+id/horizontalScroll2"
 			 android:layout_width="match_parent"
-			 android:layout_height="0dp"
-			 app:layout_constraintBottom_toTopOf="@+id/bottom_Bar"
+			 android:layout_height="wrap_content"
+			 android:orientation="horizontal"
+			 app:layout_constraintBottom_toTopOf="@+id/horizontalScroll3"
 			 app:layout_constraintEnd_toEndOf="parent"
 			 app:layout_constraintStart_toStartOf="parent"
-			 app:layout_constraintTop_toBottomOf="@+id/AppBarLayout">
+			 app:layout_constraintTop_toBottomOf="@+id/horizontalScroll1">
 
+		</LinearLayout>
 
-			<LinearLayout
-				 android:id="@+id/horizontalScroll1"
-				 android:layout_width="match_parent"
-				 android:layout_height="wrap_content"
-				 android:minHeight="50dp"
-				 android:orientation="horizontal"
-				 app:layout_constraintEnd_toEndOf="parent"
-				 app:layout_constraintStart_toStartOf="parent"
-				 app:layout_constraintTop_toTopOf="parent">
+		<LinearLayout
+			 android:id="@+id/horizontalScroll3"
+			 android:layout_width="match_parent"
+			 android:layout_height="wrap_content"
+			 android:orientation="horizontal"
+			 app:layout_constraintBottom_toBottomOf="parent"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent">
 
-			</LinearLayout>
+		</LinearLayout>
 
-			<LinearLayout
-				 android:id="@+id/horizontalScroll2"
-				 android:layout_width="match_parent"
-				 android:layout_height="wrap_content"
-				 android:minHeight="50dp"
-				 android:orientation="horizontal"
-				 app:layout_constraintBottom_toTopOf="@+id/horizontalScroll3"
-				 app:layout_constraintEnd_toEndOf="parent"
-				 app:layout_constraintStart_toStartOf="parent"
-				 app:layout_constraintTop_toBottomOf="@+id/horizontalScroll1">
+		<androidx.constraintlayout.widget.Guideline
+			 android:id="@+id/guideline2"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:layout_marginStart="16dp"
+			 android:orientation="vertical"
+			 android:visibility="gone"
+			 app:layout_constraintGuide_percent="0.07888041"
+			 app:layout_constraintStart_toStartOf="parent"
+			 tools:visibility="visible" />
 
-			</LinearLayout>
+		<androidx.constraintlayout.widget.Guideline
+			 android:id="@+id/guideline3"
+			 android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 android:layout_marginEnd="16dp"
+			 android:orientation="vertical"
+			 android:visibility="gone"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintGuide_percent="0.93"
+			 tools:visibility="visible" />
 
-			<LinearLayout
-				 android:id="@+id/horizontalScroll3"
-				 android:layout_width="match_parent"
-				 android:layout_height="wrap_content"
-				 android:minHeight="50dp"
-				 android:orientation="horizontal"
-				 app:layout_constraintBottom_toBottomOf="parent"
-				 app:layout_constraintEnd_toEndOf="parent"
-				 app:layout_constraintHorizontal_bias="0.5"
-				 app:layout_constraintStart_toStartOf="parent">
-
-			</LinearLayout>
-
-		</androidx.constraintlayout.widget.ConstraintLayout>
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 		<com.google.android.material.bottomnavigation.BottomNavigationView
 			 android:id="@+id/bottom_Bar"
@@ -115,7 +134,6 @@
 			 app:layout_constraintStart_toStartOf="parent"
 			 app:menu="@menu/bottom_bar_menu" />
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
