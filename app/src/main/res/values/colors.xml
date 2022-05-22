@@ -11,13 +11,18 @@
     <color name="fbutton">#80DEEA</color>
     <color name="transparent">#0080DEEA</color>
 
-<!--    NAVIGATION BAR-->
+<!--    MY COLORS-->
+    <color name="Charcoal">#34282C</color>
+    <color name="LightGold">#BEFFE0B2</color>
+
+
+    <!--    NAVIGATION BAR-->
     <color name="background_bottom_bar">#80FFF8E1</color>
-    <color name="item_icon_tint_active">#332D41</color>
+    <color name="item_icon_tint_active">@color/Charcoal</color>
     <color name="item_icon_tint_inactive">#45000000</color>
     <color name="item_ripple_color">#80FFD180</color>
 
-    <color name="item_text_appearance_active">#BEFFE0B2</color>
+    <color name="item_text_appearance_active">@color/LightGold</color>
 <!--    <color name="item_text_appearance_inactive">#000</color>-->
 
     <color name="item_text_color_active">#332D41</color>

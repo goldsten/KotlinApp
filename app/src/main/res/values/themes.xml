@@ -13,11 +13,9 @@
 		<item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 		<!-- Customize your theme here. -->
 
-			<!--this attribute is to change the theme of the normal FAB-->
-			<item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
 	</style>
 
-<!--bottom bar menu-->
+<!--TODO: BOTTOM BAR MENU-->
 	<style name="Widget.Material3.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
 		<item name="itemActiveIndicatorStyle">@style/Widget.Material3.BottomNavigationView.ActiveIndicator</item>
 		<item name="itemPaddingTop">@dimen/m3_bottom_nav_item_padding_top</item>
@@ -37,7 +35,6 @@
 		<item name="itemIconTint" >@drawable/selector_nav_item_menu</item>
 <!--		color active item text-->
 		<item name="itemTextColor">@color/item_text_color_active</item>
-
 	</style>
 
 	<style name="Widget.Material3.BottomNavigationView.ActiveIndicator" parent="">
@@ -57,42 +54,50 @@
 		<item name="cornerSize">50%</item>
 	</style>
 
+<!--TODO: CUSTOM STYLES FAB-->
 	<style name="Widget.App.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
 
-		<!--the following attribute will changes in the appearance of
-			 the normal FAB in terms of colors-->
+<!--		the following attribute will changes in the appearance of the normal FAB in terms of colors-->
 		<item name="materialThemeOverlay">@style/myCustomThemeForNormalFab</item>
-
-		<!--the following attribute will change in the shape appearance of the normal FAB-->
+<!--		the following attribute will change in the shape appearance of the normal FAB-->
 		<item name="shapeAppearanceOverlay">@style/customNormalFAB</item>
 
-		<!--to make the code look cleaner and readable, the above
-			 two children are implemented separately-->
+		<item name="borderWidth">5dp</item>
 	</style>
-
 	<style name="customNormalFAB">
 
-		<!--for the normal FAB the cornerFamily is given the value as the rounded-->
-		<!--in this case it has been done to differentiate the
-			 themes of the normal FAB and extended FAB-->
+<!--		for the normal FAB the cornerFamily is given the value as the rounded in this case it has been done to differentiate the themes of the normal FAB and extended FAB-->
 		<item name="cornerFamily">rounded</item>
-
-		<!--and the cornerSize makes rounded corner for all
-			 4 corners of the FAB as 20dp radius-->
-		<item name="cornerSize">0dp</item>
+<!--		and the cornerSize makes rounded corner for all 4 corners of the FAB as 20dp radius-->
+		<item name="cornerSize">10dp</item>
 
 	</style>
 	<style name="myCustomThemeForNormalFab" parent="">
 
-		<!--for the extended FAB the cornerFamily is given the value as the cut-->
-		<item name="colorSecondary">@android:color/holo_green_dark</item>
-
-		<!--this attribute gives makes the change in the text and icon color of the FAB-->
-		<item name="colorOnSecondary">@android:color/white</item>
+		<item name="colorSecondary">@color/status_bar</item>
+<!--		this attribute gives makes the change in the text and icon color of the FAB-->
+		<item name="colorOnSecondary">@color/item_icon_tint_active</item>
 
 	</style>
 
-
-
+<!--
+	<style name="Widget.MaterialComponents.FloatingActionButton" parent="Widget.Design.FloatingActionButton">
+		<item name="android:background">@null</item>
+		<item name="enforceMaterialTheme">true</item>
+		<item name="ensureMinTouchTargetSize">true</item>
+		<item name="elevation">@dimen/mtrl_fab_elevation</item>
+		<item name="backgroundTint">@color/mtrl_fab_bg_color_selector</item>
+		<item name="tint">@color/mtrl_fab_icon_text_color_selector</item>
+		<item name="hoveredFocusedTranslationZ">@dimen/mtrl_fab_translation_z_hovered_focused</item>
+		<item name="pressedTranslationZ">@dimen/mtrl_fab_translation_z_pressed</item>
+		<item name="rippleColor">@color/mtrl_fab_ripple_color</item>
+		<item name="showMotionSpec">@animator/mtrl_fab_show_motion_spec</item>
+		<item name="hideMotionSpec">@animator/mtrl_fab_hide_motion_spec</item>
+		<item name="shapeAppearance">?attr/shapeAppearanceSmallComponent</item>
+		<item name="shapeAppearanceOverlay">
+			@style/ShapeAppearanceOverlay.MaterialComponents.FloatingActionButton
+		</item>
+	</style>
+	-->
 
 </resources>
