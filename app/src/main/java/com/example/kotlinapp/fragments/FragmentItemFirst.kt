@@ -14,7 +14,7 @@ import com.example.kotlinapp.databinding.FragmentItemFirstBinding
 
 class FragmentItemFirst : Fragment() {
 	private val adapter = rcAdapter()
-	private val listTitle = listOf(" Cleaner","Plumber","Electrican","Gardener","Text5","Text6","Text7",)
+	private val listTitle = listOf("Cleaner","Plumber","Electrican","Gardener","Text5","Text6","Text7",)
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)

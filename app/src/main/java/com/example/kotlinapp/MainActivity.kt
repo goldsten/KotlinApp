@@ -20,19 +20,19 @@ class MainActivity : AppCompatActivity() {
 		setContentView(binding.root)
 		binding.apply {
 			// default Fragment
-			supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemFirst.newInstance()).commit()
+			supportFragmentManager.beginTransaction().replace(R.id.horizontalScroll1, FragmentItemFirst.newInstance()).commit()
 
 			bottomBar.setOnItemSelectedListener { item ->
 				when(item.itemId) {
-					R.id.shop -> {
-						supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemFirst.newInstance()).commit()
+					R.id.home -> {
+						supportFragmentManager.beginTransaction().replace(R.id.horizontalScroll1, FragmentItemFirst.newInstance()).commit()
 						true
 					}
-					R.id.category -> {
+					R.id.booking -> {
 						supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemSecond.newInstance()).commit()
 						true
 					}
-					R.id.follow -> {
+					R.id.save -> {
 						supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemThird.newInstance()).commit()
 						true
 					}
@@ -44,10 +44,7 @@ class MainActivity : AppCompatActivity() {
 				}
 			}
 
-			topBar.setNavigationOnClickListener  {
-				val intent = Intent(this@MainActivity, MainActivity2::class.java)
-				startActivity(intent)
-			}
+
 
 		} // END BINDING
 	} // END onCreate

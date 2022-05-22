@@ -2,15 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	 xmlns:app="http://schemas.android.com/apk/res-auto"
 	 android:layout_width="wrap_content"
-	 android:layout_height="wrap_content">
+	 android:layout_height="wrap_content"
+	 android:layout_marginEnd="10dp">
 
 	<androidx.cardview.widget.CardView
 		 android:id="@+id/cardView"
 		 android:layout_width="wrap_content"
 		 android:layout_height="wrap_content"
+		 android:minHeight="100dp"
 		 app:cardBackgroundColor="#8C9EFF"
 		 app:cardCornerRadius="10dp"
-		 app:cardElevation="1dp"
+		 app:cardElevation="5dp"
 		 app:layout_constraintBottom_toBottomOf="parent"
 		 app:layout_constraintEnd_toEndOf="parent"
 		 app:layout_constraintHorizontal_bias="0.0"
@@ -22,6 +24,7 @@
 			 android:id="@+id/tvCard"
 			 android:layout_width="match_parent"
 			 android:layout_height="wrap_content"
+			 android:layout_gravity="bottom|center"
 			 android:gravity="center"
 			 android:padding="10dp"
 			 android:text="Hello, World!" />

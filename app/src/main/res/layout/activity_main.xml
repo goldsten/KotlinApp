@@ -11,24 +11,29 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-		<com.google.android.material.appbar.AppBarLayout
-			android:id="@+id/AppBarLayout"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent">
+		<LinearLayout
+			 android:id="@+id/AppBarLayout"
+			 android:layout_width="match_parent"
+			 android:layout_height="wrap_content"
+			 android:gravity="center_vertical"
+			 android:orientation="horizontal"
+			 android:padding="10dp"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toTopOf="parent">
 
-			<com.google.android.material.appbar.MaterialToolbar
-				android:id="@+id/top_Bar"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				app:menu="@menu/top_bar_menu"
-				app:navigationIcon="@drawable/ic_arrow_back"
-				app:subtitle="Find"
-				app:subtitleTextColor="#66000000"
-				app:title="InstaShop" />
-		</com.google.android.material.appbar.AppBarLayout>
+			<com.google.android.material.floatingactionbutton.FloatingActionButton
+				 android:id="@+id/top_Bar_filter"
+				 style="@style/CurvedButton"
+				 android:layout_width="wrap_content"
+				 android:layout_height="wrap_content"
+				 android:clickable="true"
+				 android:focusable="true"
+				 android:src="@drawable/ic_filter" />
+			<!--							 android:background="@drawable/curved_button"
+-->
+
+		</LinearLayout>
 
 		<androidx.constraintlayout.widget.ConstraintLayout
 			 android:id="@+id/main_container"
@@ -39,6 +44,44 @@
 			 app:layout_constraintStart_toStartOf="parent"
 			 app:layout_constraintTop_toBottomOf="@+id/AppBarLayout">
 
+
+			<LinearLayout
+				 android:id="@+id/horizontalScroll1"
+				 android:layout_width="match_parent"
+				 android:layout_height="wrap_content"
+				 android:minHeight="50dp"
+				 android:orientation="horizontal"
+				 app:layout_constraintEnd_toEndOf="parent"
+				 app:layout_constraintStart_toStartOf="parent"
+				 app:layout_constraintTop_toTopOf="parent">
+
+			</LinearLayout>
+
+			<LinearLayout
+				 android:id="@+id/horizontalScroll2"
+				 android:layout_width="match_parent"
+				 android:layout_height="wrap_content"
+				 android:minHeight="50dp"
+				 android:orientation="horizontal"
+				 app:layout_constraintBottom_toTopOf="@+id/horizontalScroll3"
+				 app:layout_constraintEnd_toEndOf="parent"
+				 app:layout_constraintStart_toStartOf="parent"
+				 app:layout_constraintTop_toBottomOf="@+id/horizontalScroll1">
+
+			</LinearLayout>
+
+			<LinearLayout
+				 android:id="@+id/horizontalScroll3"
+				 android:layout_width="match_parent"
+				 android:layout_height="wrap_content"
+				 android:minHeight="50dp"
+				 android:orientation="horizontal"
+				 app:layout_constraintBottom_toBottomOf="parent"
+				 app:layout_constraintEnd_toEndOf="parent"
+				 app:layout_constraintHorizontal_bias="0.5"
+				 app:layout_constraintStart_toStartOf="parent">
+
+			</LinearLayout>
 
 		</androidx.constraintlayout.widget.ConstraintLayout>
 

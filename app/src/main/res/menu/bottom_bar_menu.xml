@@ -2,25 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/shop"
-        android:title="Shop"
+        android:id="@+id/home"
+        android:title="Home"
         android:enabled="true"
-        android:icon="@drawable/ic_shop"
+        android:icon="@drawable/ic_home"
         android:orderInCategory="1"
         />
 
     <item
-        android:id="@+id/category"
-        android:title="Category"
+        android:id="@+id/booking"
+        android:title="Booking"
         android:enabled="true"
-        android:icon="@drawable/ic_category"
+        android:icon="@drawable/ic_clipboard"
         android:orderInCategory="2"
         />
     <item
-        android:id="@+id/follow"
-        android:title="Follow"
+        android:id="@+id/save"
+        android:title="Save"
         android:enabled="true"
-        android:icon="@drawable/ic_like"
+        android:icon="@drawable/ic_bookmark"
         android:orderInCategory="3"
         />
     <item
