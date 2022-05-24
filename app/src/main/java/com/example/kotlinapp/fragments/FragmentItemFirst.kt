@@ -5,32 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinapp.RecyclerView.TitleList
-import com.example.kotlinapp.RecyclerView.rcAdapter
+import com.example.kotlinapp.DataArrayList.TitleListCategory
+import com.example.kotlinapp.RecyclerView.*
 import com.example.kotlinapp.databinding.FragmentItemFirstBinding
 
 class FragmentItemFirst : Fragment() {
-	private val adapter = rcAdapter()
-	private val listTitle = listOf("Cleaner","Plumber","Electrican","Gardener","Text5","Text6","Text7",)
+	private val adapterFirst = rcAdapterCardCategoryFirst()
+	private val adapterSecond = rcAdapterCardCategorySecond()
+	private val adapterThird = rcAdapterCardCategoryThird()
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-	}
+	private val listTitleCategory = listOf("Cleaner","Plumber","Electrican","Gardener","Text5","Text6","Text7")
+	private val listTitleCleaning = listOf("Home Cleaning","Bathroom Cleaning","Disinfection","Title1","Title2","Title3","Title4")
+	private val listTitleRepairs = listOf("Plumber","Carpenter","Title1","Title2","Title3","Title4","Title5")
+
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		val binding = FragmentItemFirstBinding.inflate(inflater, container,false)
 		binding.apply {
+
 			// как будет заполняться список
 			rcCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 			// выбрать адаптер
-			rcCategory.adapter = adapter
-			for (i in listTitle.indices){
-				val title = TitleList(listTitle[i])
-				adapter.addItem(title)
-			}
+			rcCategory.adapter = adapterFirst
+			for (i in listTitleCategory.indices) adapterFirst.addItem(TitleListCategory(listTitleCategory[i]))
+
+			rcCleaningServices.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+			// выбрать адаптер
+			rcCleaningServices.adapter = adapterSecond
+			for (i in listTitleCategory.indices) adapterSecond.addItem(TitleListCategory(listTitleCleaning[i]))
+
+			rcHomeRapairs.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+			// выбрать адаптер
+			rcHomeRapairs.adapter = adapterThird
+			for (i in listTitleCategory.indices) adapterThird.addItem(TitleListCategory(listTitleRepairs[i]))
+
 		}
 		return binding.root
 	}

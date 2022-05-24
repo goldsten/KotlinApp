@@ -13,10 +13,7 @@
 		 android:layout_height="wrap_content"
 		 android:background="@color/body_color"
 		 android:gravity="center_vertical"
-		 android:paddingStart="15dp"
-		 android:paddingTop="10dp"
-		 android:paddingEnd="15dp"
-		 android:paddingBottom="10dp"
+		 android:padding="10dp"
 		 app:layout_constraintEnd_toEndOf="parent"
 		 app:layout_constraintStart_toStartOf="parent"
 		 app:layout_constraintTop_toTopOf="parent">
@@ -61,78 +58,18 @@
 		 app:layout_constraintBottom_toTopOf="@+id/bottom_Bar"
 		 app:layout_constraintEnd_toEndOf="parent"
 		 app:layout_constraintStart_toStartOf="parent"
-		 app:layout_constraintTop_toBottomOf="@+id/AppBarLayout">
+		 app:layout_constraintTop_toBottomOf="@+id/AppBarLayout"/>
 
-
-		<LinearLayout
-			 android:id="@+id/horizontalScroll1"
-			 android:layout_width="match_parent"
-			 android:layout_height="wrap_content"
-			 android:orientation="horizontal"
-			 app:layout_constraintEnd_toEndOf="parent"
-			 app:layout_constraintStart_toStartOf="parent"
-			 app:layout_constraintTop_toTopOf="parent">
-
-		</LinearLayout>
-
-		<LinearLayout
-			 android:id="@+id/horizontalScroll2"
-			 android:layout_width="match_parent"
-			 android:layout_height="wrap_content"
-			 android:orientation="horizontal"
-			 app:layout_constraintBottom_toTopOf="@+id/horizontalScroll3"
-			 app:layout_constraintEnd_toEndOf="parent"
-			 app:layout_constraintStart_toStartOf="parent"
-			 app:layout_constraintTop_toBottomOf="@+id/horizontalScroll1">
-
-		</LinearLayout>
-
-		<LinearLayout
-			 android:id="@+id/horizontalScroll3"
-			 android:layout_width="match_parent"
-			 android:layout_height="wrap_content"
-			 android:orientation="horizontal"
-			 app:layout_constraintBottom_toBottomOf="parent"
-			 app:layout_constraintEnd_toEndOf="parent"
-			 app:layout_constraintStart_toStartOf="parent">
-
-		</LinearLayout>
-
-		<androidx.constraintlayout.widget.Guideline
-			 android:id="@+id/guideline2"
-			 android:layout_width="wrap_content"
-			 android:layout_height="wrap_content"
-			 android:layout_marginStart="16dp"
-			 android:orientation="vertical"
-			 android:visibility="gone"
-			 app:layout_constraintGuide_percent="0.07888041"
-			 app:layout_constraintStart_toStartOf="parent"
-			 tools:visibility="visible" />
-
-		<androidx.constraintlayout.widget.Guideline
-			 android:id="@+id/guideline3"
-			 android:layout_width="wrap_content"
-			 android:layout_height="wrap_content"
-			 android:layout_marginEnd="16dp"
-			 android:orientation="vertical"
-			 android:visibility="gone"
-			 app:layout_constraintEnd_toEndOf="parent"
-			 app:layout_constraintGuide_percent="0.93"
-			 tools:visibility="visible" />
-
-	</androidx.constraintlayout.widget.ConstraintLayout>
-
-		<com.google.android.material.bottomnavigation.BottomNavigationView
-			 android:id="@+id/bottom_Bar"
-			 style="@style/Widget.Material3.BottomNavigationView"
-			 android:layout_width="match_parent"
-			 android:layout_height="wrap_content"
-			 android:layout_gravity="start"
-			 app:labelVisibilityMode="selected"
-			 app:layout_constraintBottom_toBottomOf="parent"
-			 app:layout_constraintEnd_toEndOf="parent"
-			 app:layout_constraintStart_toStartOf="parent"
-			 app:menu="@menu/bottom_bar_menu" />
+	<com.google.android.material.bottomnavigation.BottomNavigationView
+		 android:id="@+id/bottom_Bar"
+		 style="@style/Widget.Material3.BottomNavigationView"
+		 android:layout_width="match_parent"
+		 android:layout_height="wrap_content"
+		 app:labelVisibilityMode="selected"
+		 app:layout_constraintBottom_toBottomOf="parent"
+		 app:layout_constraintEnd_toEndOf="parent"
+		 app:layout_constraintStart_toStartOf="parent"
+		 app:menu="@menu/bottom_bar_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

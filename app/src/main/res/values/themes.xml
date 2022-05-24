@@ -60,7 +60,7 @@
 		<item name="shapeAppearanceOverlay">@style/customCurvedFAB</item>
 
 		<item name="rippleColor">@color/ObscureGold</item>
-		<item name="borderWidth">5dp</item>
+		<item name="borderWidth">0dp</item>
 	</style>
 
 	<style name="customCurvedFAB">

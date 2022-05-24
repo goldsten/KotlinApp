@@ -1,6 +1,5 @@
 package com.example.kotlinapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -21,10 +20,12 @@ class MainActivity : AppCompatActivity() {
 		binding.apply {
 			// default Fragment
 
+			supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemFirst.newInstance()).commit()
+
 			bottomBar.setOnItemSelectedListener { item ->
 				when(item.itemId) {
 					R.id.home -> {
-						supportFragmentManager.beginTransaction().replace(R.id.horizontalScroll1, FragmentItemFirst.newInstance()).commit()
+						supportFragmentManager.beginTransaction().replace(R.id.main_container, FragmentItemFirst.newInstance()).commit()
 						true
 					}
 					R.id.booking -> {

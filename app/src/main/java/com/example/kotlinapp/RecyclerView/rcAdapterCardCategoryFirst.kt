@@ -5,23 +5,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinapp.DataArrayList.TitleListCategory
 import com.example.kotlinapp.R
 import com.example.kotlinapp.databinding.ListAdapterCardCategoryBinding
 
-class rcAdapter() : RecyclerView.Adapter<rcAdapter.rcHolder>() {
-	private var titleList = ArrayList<TitleList>()
+class rcAdapterCardCategoryFirst() : RecyclerView.Adapter<rcAdapterCardCategoryFirst.rcHolder>() {
+	private var titleListCategory = ArrayList<TitleListCategory>()
 
 	// rcHolder - содержит ссылки на все view в одном элементе
 	class rcHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 		val binding = ListAdapterCardCategoryBinding.bind(itemView)
 		// получаем список заголовка
-		fun bind(titleList: TitleList) = with(binding){
+		fun bind(titleListCategory: TitleListCategory) = with(binding){
 			cardView.setOnClickListener {
-				val title = titleList.title
+				val title = titleListCategory.title
 				Toast.makeText(it.context, "Item: $title", Toast.LENGTH_SHORT).show()
 			}
-			tvCard.text = titleList.title
+			tvCard.text = titleListCategory.title
 		}
 
 	}
@@ -31,13 +32,12 @@ class rcAdapter() : RecyclerView.Adapter<rcAdapter.rcHolder>() {
 				.inflate(R.layout.list_adapter_card_category, parent, false))
 	}
 	override fun onBindViewHolder(holder: rcHolder, position: Int) {
-		holder.bind(titleList[position])
+		holder.bind(titleListCategory[position])
 	}
-	override fun getItemCount(): Int {
-		return titleList.size
-	}
-	fun addItem(item: TitleList){
-		titleList.add(item)
+	override fun getItemCount(): Int = titleListCategory.size
+
+	fun addItem(item: TitleListCategory){
+		titleListCategory.add(item)
 		notifyDataSetChanged()
 	}
 }
